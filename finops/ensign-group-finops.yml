@@ -1,130 +1,69 @@
 specification: FinOps Framework
 specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Ensign Group
+providerId: ensign-group
+created: '2026-05-04'
+modified: '2026-05-05'
+reconciled: false
+tags:
+  - Senior Living
+  - Healthcare
+  - Post-Acute
+  - FinOps
+  - FOCUS
+description: FOCUS-aligned FinOps placeholder for Ensign Group. The company does not publish public API
+  pricing; cost is defined under the HIPAA partner agreement.
+notes: No public billing or usage API was located. Reconcile against the signed Business Associate Agreement
+  and partner contract.
+sources:
+  - https://www.ensigngroup.net
 alignedWith:
   framework: FinOps Foundation Framework
   frameworkUrl: https://www.finops.org/framework/
   dataSpec: FOCUS
   dataSpecVersion: '1.3'
   dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
-provider: Ensign Group
-providerId: ensign-group
-publisherName: Ensign Group
-serviceCategory: API
-created: '2026-05-04'
-modified: '2026-05-04'
-tags:
-  - Senior Living
-  - Healthcare
-  - Post-Acute
-  - FinOps
-  - Cost Management
-  - FOCUS
-description: FinOps framework definition for the Ensign Group API surface. Provides a FOCUS-aligned mapping
-  for cost allocation, usage measurement, and unit-economics reporting across the provider's APIs.
-principles:
-  - name: Visibility
-    description: Make API consumption costs visible to engineering, product, and finance teams in near
-      real-time.
-  - name: Allocation
-    description: Tag every chargeable API call with the consuming team, environment, application, and
-      feature so cost can be allocated.
-  - name: Optimization
-    description: Continuously evaluate request patterns, caching, batching, and tier selection to reduce
-      cost per useful unit of work.
-  - name: Accountability
-    description: Establish budget owners and chargeback or showback flows for each consuming team.
-domains:
-  - name: Understand Usage and Cost
-    capabilities:
-      - Data Ingestion
-      - Allocation
-      - Reporting and Analytics
-      - Anomaly Management
-  - name: Quantify Business Value
-    capabilities:
-      - Planning and Estimating
-      - Forecasting
-      - Budgeting
-      - Benchmarking
-      - Unit Economics
-  - name: Optimize Usage and Cost
-    capabilities:
-      - Architecting for Cloud
-      - Rate Optimization
-      - Workload Optimization
-      - Cloud Sustainability
-      - Licensing and SaaS
-  - name: Manage the FinOps Practice
-    capabilities:
-      - FinOps Practice Operations
-      - FinOps Education and Enablement
-      - Invoicing and Chargeback
-      - Onboarding Workloads
-      - Intersecting Disciplines
+publisherName: The Ensign Group, Inc.
+serviceCategory: Healthcare / Post-Acute Integration
 billingModel:
-  pricingCategory: Usage-Based
-  billingFrequency: Monthly
+  pricingCategory: Contract / Negotiated
+  billingFrequency: Per-Invoice
   billingCurrency: USD
   chargeCategories:
     - Usage
     - Purchase
-    - Tax
-    - Credit
     - Adjustment
-  chargeFrequency: Recurring
 focusColumns:
-  ServiceName: Ensign Group
-  ServiceCategory: Developer Tools / API
+  ServiceName: Ensign Group API
+  ServiceCategory: Healthcare / Post-Acute Integration
   ProviderName: Ensign Group
-  PublisherName: Ensign Group
-  InvoiceIssuerName: Ensign Group
-  PricingCategory: Usage-Based
-  PricingUnit: request
+  PublisherName: The Ensign Group, Inc.
+  InvoiceIssuerName: The Ensign Group, Inc.
   BillingCurrency: USD
   ChargeCategory: Usage
 meters:
   - name: api_requests
-    description: Count of billable API requests
     unit: request
     aggregation: sum
     dimensions:
-      - api
       - endpoint
-      - tier
-      - region
-      - consumer
-  - name: data_egress
-    description: Bytes returned over the network in API responses
-    unit: GB
+      - partner
+  - name: contract_fee
+    unit: month
     aggregation: sum
     dimensions:
-      - api
-      - region
-      - consumer
-  - name: compute_seconds
-    description: Server-side compute consumed by the request, where applicable
-    unit: second
-    aggregation: sum
-    dimensions:
-      - api
-      - endpoint
-      - tier
-apis:
-  - name: Ensign Group API
-    baseURL: https://api.ensigngroup.net
-    tags:
-      - Senior Living
-      - Healthcare
-      - Post-Acute
-    serviceName: Ensign Group API
-    serviceCategory: API
-unitEconomics:
-  - name: Cost per 1K Requests
-    metric: billed_cost / (api_requests / 1000)
-    target: TBD
-  - name: Cost per Active Consumer
-    metric: billed_cost / active_consumers
-    target: TBD
+      - contract
+principles:
+  - name: Visibility
+    description: Visibility is delivered through partner reporting agreed in the BAA; no public usage API.
+  - name: Allocation
+    description: Allocate cost by partner agreement and operating subsidiary per the master services agreement.
+  - name: Optimization
+    description: Optimization levers are batching, caching, and renegotiating partner terms at renewal.
+  - name: Accountability
+    description: The contracting partner owns spend; reviews follow contract cadence with the Ensign account
+      team and Privacy Officer.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
