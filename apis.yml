@@ -28,6 +28,8 @@ apis:
     description: >-
       The Ensign Group API provides access to platform services and data for enterprise integration and automation.
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/ensign-group-inc-the
   - type: Website
     url: https://www.ensigngroup.net
 maintainers:
