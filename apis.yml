@@ -51,6 +51,12 @@ apis:
     description: >-
       The Ensign Group API provides access to platform services and data for enterprise integration and automation.
 common:
+  - type: Plans
+    url: plans/ensign-group-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/ensign-group-rate-limits.yml
+  - type: FinOps
+    url: finops/ensign-group-finops.yml
   - type: DomainSecurity
     url: security/ensign-group-domain-security.yml
   - type: LinkedIn
